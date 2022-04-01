@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FormEvent } from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { IFooterExtendedProps } from '../types/components';
 import { FooterExtended } from './FooterExtended';
@@ -23,11 +23,6 @@ export default {
       control: false,
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<IFooterExtendedProps> = (args) => (
@@ -35,6 +30,7 @@ const Template: Story<IFooterExtendedProps> = (args) => (
 );
 
 export const Default = Template.bind({});
+
 Default.args = {
   sameSite: false,
   resources: [
@@ -57,7 +53,7 @@ Default.args = {
       },
     },
   ],
-  onNewsletterSubmit: (e: React.FormEvent, value: string) => {
+  onNewsletterSubmit(e: FormEvent, value: string) {
     console.log(e, value);
   },
 };

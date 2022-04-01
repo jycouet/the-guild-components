@@ -85,10 +85,8 @@ export interface IHeaderModalProps extends IHeaderModalRestProps {
 
 export interface IFooterProps {
   sameSite?: boolean;
-
   wrapperProps?: React.ComponentProps<'footer'>;
   containerProps?: React.ComponentProps<'div'>;
-  lineProps?: React.ComponentProps<'hr'>;
   linkProps?: React.ComponentProps<'a'>;
   logoProps?: React.ComponentProps<'a'>;
   copyrightProps?: React.ComponentProps<'p'>;
@@ -98,10 +96,8 @@ export interface IFooterExtendedProps {
   sameSite?: boolean;
   resources?: ILink[];
   onNewsletterSubmit?: (e: React.FormEvent, value: string) => void;
-
   wrapperProps?: React.ComponentProps<'footer'>;
   containerProps?: React.ComponentProps<'div'>;
-  lineProps?: React.ComponentProps<'hr'>;
   linkProps?: React.ComponentProps<'a'>;
   logoProps?: React.ComponentProps<'a'>;
   titleProps?: React.ComponentProps<'p'>;

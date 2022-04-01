@@ -1,3 +1,6 @@
+import { FC } from 'react';
+import { useDarkMode } from 'storybook-dark-mode';
+import { themes } from '@storybook/theming';
 import { ThemeProvider } from '../packages/components/src/helpers/theme';
 import { GlobalStyles } from '../packages/components/src/helpers/styles';
 import '../packages/components/src/static/styles.css';
@@ -10,13 +13,27 @@ export const parameters = {
       order: ['Components', ['Headers'], 'Projects'],
     },
   },
+  darkMode: {
+    // Override the default dark theme
+    dark: { ...themes.normal, appBg: 'white' },
+    // Override the default light theme
+    light: { ...themes.normal, appBg: 'white' },
+  },
+};
+
+const ThemeWrapper: FC = ({ children }) => {
+  return (
+    <ThemeProvider isDarkTheme={useDarkMode()}>
+      <GlobalStyles includeFonts includeBase />
+      {children}
+    </ThemeProvider>
+  );
 };
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider>
-      <GlobalStyles includeFonts includeBase />
+    <ThemeWrapper>
       <Story />
-    </ThemeProvider>
+    </ThemeWrapper>
   ),
 ];

@@ -8,6 +8,7 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    'storybook-dark-mode', // addon to have toolbar for dark/light mode
     {
       name: '@storybook/addon-postcss',
       options: {

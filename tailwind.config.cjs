@@ -5,6 +5,9 @@ module.exports = {
   darkMode: 'class',
   content: ['./packages/**/*.{html,ts,tsx}'],
   theme: {
+    container: {
+      center: true,
+    },
     colors: {
       transparent: 'transparent',
       black: colors.black,
@@ -47,7 +50,7 @@ module.exports = {
         '3/4': '75%',
       },
       borderWidth: {
-        3: '3px',
+        3: 3,
       },
     },
   },
@@ -55,30 +58,33 @@ module.exports = {
     plugin(({ addUtilities, addVariant }) => {
       const containerProps = {
         width: '100%',
-        paddingLeft: '1.5rem',
-        paddingRight: '1.5rem',
+        paddingLeft: '0.75rem',
+        paddingRight: '0.75rem',
+        '@media (min-width: 768px)': {
+          paddingLeft: '1.5rem',
+          paddingRight: '1.5rem',
+        },
         marginLeft: 'auto',
         marginRight: 'auto',
         boxSizing: 'border-box',
       };
 
-      const newUtilities = {
+      addUtilities({
         '.container-max': {
           ...containerProps,
-          maxWidth: '1200px',
+          maxWidth: 1200,
         },
 
         '.container-min': {
           ...containerProps,
-          maxWidth: '1024px',
+          maxWidth: 1024,
         },
 
         '.font-default': {
           fontFamily: 'TGCFont, sans-serif',
         },
-      };
+      });
       addVariant('hocus', ['&:hover', '&:focus']);
-      addUtilities(newUtilities);
     }),
   ],
 };
