@@ -44,7 +44,7 @@ export default function App({
               title: 'View on GitHub',
               href: 'https://github.com/the-guild-org/the-guild-components',
               target: '_blank',
-              rel: 'noopener noreferrer',
+              rel: 'noreferrer',
             },
           ]}
           cta={{
@@ -52,7 +52,7 @@ export default function App({
             title: 'Learn more about TGC',
             href: 'https://github.com/the-guild-org/the-guild-components',
             target: '_blank',
-            rel: 'noopener noreferrer',
+            rel: 'noreferrer',
           }}
         />
         <Component {...pageProps} />

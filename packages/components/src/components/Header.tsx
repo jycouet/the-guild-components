@@ -32,7 +32,7 @@ const renderLinkOptions = (
   return {
     href: `https://the-guild.dev${href}`,
     target: '_blank',
-    rel: 'noopener noreferrer',
+    rel: 'noreferrer',
   };
 };
 

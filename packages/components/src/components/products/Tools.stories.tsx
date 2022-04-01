@@ -69,7 +69,7 @@ const subheaderData = {
       title: 'See our GitHub profile',
       href: 'https://github.com/ardatan/graphql-tools',
       target: '_blank',
-      rel: 'noopener noreferrer',
+      rel: 'noreferrer',
     },
   ],
   cta: {

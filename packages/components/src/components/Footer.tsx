@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   Container,
   Copyright,
@@ -8,7 +7,6 @@ import {
   Logo,
   Wrapper,
 } from './Footer.styles';
-
 import { useThemeContext } from '../helpers/theme';
 import { logoThemedIcons } from '../helpers/assets';
 import { IFooterProps } from '../types/components';
@@ -19,35 +17,35 @@ const links = [
     title: 'Visit our Twitter',
     href: 'https://twitter.com/TheGuildDev',
     target: '_blank',
-    rel: 'noopener noreferrer',
+    rel: 'noreferrer',
   },
   {
     children: 'LinkedIn',
     title: 'Visit our LinkedIn',
     href: 'https://linkedin.com/company/the-guild-software',
     target: '_blank',
-    rel: 'noopener noreferrer',
+    rel: 'noreferrer',
   },
   {
     children: 'GitHub',
     title: 'See our GitHub profile',
     href: 'https://github.com/the-guild-org',
     target: '_blank',
-    rel: 'noopener noreferrer',
+    rel: 'noreferrer',
   },
   {
     children: 'Medium',
     title: 'Read our Medium posts',
     href: 'https://medium.com/the-guild',
     target: '_blank',
-    rel: 'noopener noreferrer',
+    rel: 'noreferrer',
   },
   {
     children: 'YouTube',
     title: 'Our Videos',
     href: 'https://youtube.com/watch?v=d_GBgH-L5c4&list=PLhCf3AUOg4PgQoY_A6xWDQ70yaNtPYtZd',
     target: '_blank',
-    rel: 'noopener noreferrer',
+    rel: 'noreferrer',
   },
 ];
 
@@ -61,7 +59,7 @@ export const Footer: React.FC<IFooterProps> = ({ sameSite, ...restProps }) => {
       }
     : {
         href: 'https://the-guild.dev',
-        rel: 'noopener noreferrer',
+        rel: 'noreferrer',
         target: '_blank',
       };
 
