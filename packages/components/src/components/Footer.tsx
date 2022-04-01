@@ -1,62 +1,38 @@
-import React from 'react';
-import {
-  Container,
-  Copyright,
-  Links,
-  Line,
-  Logo,
-  Wrapper,
-} from './Footer.styles';
-import { useThemeContext } from '../helpers/theme';
-import { logoThemedIcons } from '../helpers/assets';
-import { IFooterProps } from '../types/components';
+import type { FC } from 'react';
+import type { IFooterProps, ILink } from '../types/components';
+import { GuildLogoMono } from './Icon';
 
-const links = [
+const links: ILink[] = [
   {
     children: 'Twitter',
     title: 'Visit our Twitter',
     href: 'https://twitter.com/TheGuildDev',
-    target: '_blank',
-    rel: 'noreferrer',
   },
   {
     children: 'LinkedIn',
     title: 'Visit our LinkedIn',
     href: 'https://linkedin.com/company/the-guild-software',
-    target: '_blank',
-    rel: 'noreferrer',
   },
   {
     children: 'GitHub',
     title: 'See our GitHub profile',
     href: 'https://github.com/the-guild-org',
-    target: '_blank',
-    rel: 'noreferrer',
   },
   {
     children: 'Medium',
     title: 'Read our Medium posts',
     href: 'https://medium.com/the-guild',
-    target: '_blank',
-    rel: 'noreferrer',
   },
   {
     children: 'YouTube',
     title: 'Our Videos',
     href: 'https://youtube.com/watch?v=d_GBgH-L5c4&list=PLhCf3AUOg4PgQoY_A6xWDQ70yaNtPYtZd',
-    target: '_blank',
-    rel: 'noreferrer',
   },
 ];
 
-export const Footer: React.FC<IFooterProps> = ({ sameSite, ...restProps }) => {
-  const { isDarkTheme } = useThemeContext();
-  const logos = logoThemedIcons(isDarkTheme || false);
-
+export const Footer: FC<IFooterProps> = ({ sameSite, ...restProps }) => {
   const logoOptions = sameSite
-    ? {
-        href: '/',
-      }
+    ? { href: '/' }
     : {
         href: 'https://the-guild.dev',
         rel: 'noreferrer',
@@ -64,23 +40,45 @@ export const Footer: React.FC<IFooterProps> = ({ sameSite, ...restProps }) => {
       };
 
   return (
-    <Wrapper {...restProps.wrapperProps}>
-      <Container {...restProps.containerProps}>
-        <Line {...restProps.lineProps} />
-        <Copyright {...restProps.copyrightProps}>
+    <footer
+      className="bg-white text-xs text-gray-500 font-default dark:bg-gray-900 dark:text-gray-400"
+      {...restProps.wrapperProps}
+    >
+      <div
+        className="flex flex-col flex-wrap items-center justify-between pb-4 container-max md:flex-row md:pb-5"
+        {...restProps.containerProps}
+      >
+        <hr
+          className="m-0 mb-4 w-full border-0 border-t border-solid border-gray-300 dark:border-gray-800 md:mb-5"
+          {...restProps.lineProps}
+        />
+        <p className="hidden flex-1 md:block" {...restProps.copyrightProps}>
           Belong anywhere. © The Guild, Inc.
-        </Copyright>
-        <Logo {...logoOptions} {...restProps.logoProps}>
-          <img src={logos.logoMono} alt="The Guild" />
-        </Logo>
-        <Links>
+        </p>
+        <a {...logoOptions} {...restProps.logoProps}>
+          <GuildLogoMono className="mb-3 transition hover:text-gray-900 dark:hover:text-gray-100 md:mb-0" />
+        </a>
+        <ul className="m-0 flex flex-1 list-none flex-wrap justify-end p-0">
           {links.map((link) => (
-            <li key={link.href}>
-              <a {...link} {...restProps.linkProps} />
+            <li
+              key={link.href}
+              className="
+                before:mx-2
+                before:content-['•']
+                before:first-of-type:hidden
+              "
+            >
+              <a
+                target="_blank"
+                rel="noreferrer"
+                className="inline-block no-underline transition hover:text-black hover:dark:text-gray-100"
+                {...link}
+                {...restProps.linkProps}
+              />
             </li>
           ))}
-        </Links>
-      </Container>
-    </Wrapper>
+        </ul>
+      </div>
+    </footer>
   );
 };

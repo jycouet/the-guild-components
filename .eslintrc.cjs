@@ -28,7 +28,7 @@ module.exports = {
   settings: {
     tailwindcss: {
       config: 'tailwind.config.cjs',
-      whitelist: ['font-default'],
+      whitelist: ['font-default', 'container-max'],
     },
     react: {
       version: 'detect',

@@ -46,7 +46,7 @@ export const Header: React.FC<IHeaderProps> = ({
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const icons = headerThemedIcons(isDarkTheme || false);
-  const logos = logoThemedIcons(isDarkTheme || false);
+  const logos = logoThemedIcons(isDarkTheme);
 
   const handleModal = (state: boolean) => {
     !mobileNavOpen && toggleLockBodyScroll(state);
