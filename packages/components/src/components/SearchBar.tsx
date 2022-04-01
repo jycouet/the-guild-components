@@ -342,6 +342,7 @@ export const SearchBar: FC<ISearchBarProps> = ({
   placeholder,
   isFull,
   onHandleModal,
+  className,
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -349,7 +350,7 @@ export const SearchBar: FC<ISearchBarProps> = ({
     toggleLockBodyScroll(state);
     setModalOpen(state);
     onHandleModal?.(state);
-  }, []);
+  }, [onHandleModal]);
 
   const CustomSearchBox = connectSearchBox(SearchBox);
   const CustomStateResults = connectStateResults(StateResults);
@@ -358,6 +359,7 @@ export const SearchBar: FC<ISearchBarProps> = ({
   return (
     <>
       <SearchButton
+        className={className}
         accentColor={accentColor}
         isFull={isFull}
         onClick={() => handleModal(true)}

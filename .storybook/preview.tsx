@@ -23,7 +23,10 @@ export const parameters = {
 
 const ThemeWrapper: FC = ({ children }) => {
   return (
-    <ThemeProvider isDarkTheme={useDarkMode()}>
+    <ThemeProvider
+      // TODO: make work toggle in header
+      isDarkTheme={useDarkMode()}
+    >
       <GlobalStyles includeFonts includeBase />
       {children}
     </ThemeProvider>

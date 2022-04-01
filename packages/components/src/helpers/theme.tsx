@@ -1,23 +1,24 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const getDarkTheme = () => {
-  if (typeof window !== 'undefined' && window.localStorage) {
-    const storedPref = localStorage.getItem('theme');
-    if (typeof storedPref === 'string') {
-      return storedPref === 'dark';
-    }
-
-    const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
-    if (userMedia.matches) {
-      return true;
-    }
-
-    const html = window.document.documentElement;
-    return html.dataset.theme === 'dark' || html.classList.contains('dark');
-  } else {
+  if (typeof window === 'undefined' || !window.localStorage) {
     return false;
   }
+  const storedPref = localStorage.getItem('theme');
+
+  if (typeof storedPref === 'string') {
+    return storedPref === 'dark';
+  }
+
+  const userMedia = window.matchMedia('(prefers-color-scheme: dark)');
+  if (userMedia.matches) {
+    return true;
+  }
+
+  const html = window.document.documentElement;
+  return html.dataset.theme === 'dark' || html.classList.contains('dark');
 };
+
 interface IContextProps {
   isDarkTheme: boolean;
   setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
@@ -78,9 +79,11 @@ const ThemeProvider: React.FC<IProviderProps> = ({
 
 const useThemeContext = (): Partial<IContextProps> => {
   const context = useContext(ThemeContext);
+
   if (context == null) {
     throw new Error('"useThemeContext" could not be used.');
   }
+
   return context;
 };
 

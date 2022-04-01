@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, useMemo } from 'react';
+import clsx from 'clsx';
 import { HeaderModal } from './HeaderModal';
 import { SearchBar } from './SearchBar';
-import {
-  Wrapper,
-  Container,
-  Navigation,
-  Link,
-  Icon,
-  Controls,
-  Side,
-} from './Header.styles';
 import type { IHeaderProps } from '../types/components';
 import { useThemeContext } from '../helpers/theme';
-import { headerThemedIcons, logoThemedIcons } from '../helpers/assets';
 import { toggleLockBodyScroll } from '../helpers/modals';
+import {
+  CaretIcon,
+  CloseIcon,
+  GuildLogo,
+  HamburgerIcon,
+  MoonIcon,
+  TheGuild,
+} from './Icon';
 
 const renderLinkOptions = (
   href: string,
@@ -42,142 +41,191 @@ export const Header: React.FC<IHeaderProps> = ({
   themeSwitch,
   ...restProps
 }) => {
-  const { isDarkTheme, setDarkTheme } = useThemeContext();
+  const { setDarkTheme } = useThemeContext();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const icons = headerThemedIcons(isDarkTheme);
-  const logos = logoThemedIcons(isDarkTheme);
 
-  const handleModal = (state: boolean) => {
-    !mobileNavOpen && toggleLockBodyScroll(state);
-    setModalOpen(state);
-  };
+  const handleModal = useCallback(() => {
+    setModalOpen((prev) => {
+      if (!mobileNavOpen) {
+        toggleLockBodyScroll(!prev);
+      }
+      return !prev;
+    });
+  }, [mobileNavOpen]);
 
-  const handleNav = (state: boolean) => {
+  const handleNav = useCallback((state: boolean) => {
     toggleLockBodyScroll(state);
     setMobileNavOpen(state);
-  };
+  }, []);
 
-  const links = [
-    {
-      label: 'Our Services',
-      title: 'View our services',
-      href: '/services',
-    },
-    {
-      label: 'Platform',
-      title: 'View our projects',
-      href: '/open-source',
-      onClick: () => handleModal(true),
-    },
-    {
-      label: 'Blog',
-      title: 'Read our blog',
-      href: '/blog',
-    },
-    {
-      label: 'About Us',
-      title: 'Learn more about us',
-      href: '/about-us',
-    },
-  ];
+  const links = useMemo(
+    () => [
+      { label: 'Our Services', title: 'View our services', href: '/services' },
+      {
+        label: 'Platform',
+        title: 'View our projects',
+        href: '/open-source',
+        onClick: handleModal,
+      },
+      { label: 'Blog', title: 'Read our blog', href: '/blog' },
+      { label: 'About Us', title: 'Learn more about us', href: '/about-us' },
+    ],
+    [handleModal]
+  );
 
   const onLinkClick = restProps.linkProps?.onClick;
 
   return (
-    <Wrapper {...restProps.wrapperProps}>
-      <Container {...restProps.containerProps}>
-        <Side>
-          <Icon
-            onClick={() => handleNav(true)}
-            {...restProps.navOpenButtonProps}
-          >
-            <img src={icons.menu} className="h-6 w-6" alt="Search icon" />
-          </Icon>
-        </Side>
+    <header
+      className="bg-white py-2.5 px-3 font-default dark:bg-gray-900 md:py-4"
+      {...restProps.wrapperProps}
+    >
+      <div
+        className="flex justify-between container-max"
+        {...restProps.containerProps}
+      >
+        <button
+          className="text-gray-500 transition hover:text-gray-400 dark:text-gray-200 dark:hover:text-gray-400 md:hidden"
+          onClick={() => handleNav(true)}
+          {...restProps.navOpenButtonProps}
+        >
+          <HamburgerIcon />
+        </button>
 
         <a
-          {...renderLinkOptions('/', onLinkClick)}
           title="View our website"
+          className="flex items-center gap-x-1.5 dark:text-gray-100"
+          {...renderLinkOptions('/', onLinkClick)}
           {...restProps.logoProps}
         >
-          <img
-            src={logos.logoFull}
-            className="hidden h-[30px] md:block"
-            alt="The Guild Logo"
-          />
-          <img
-            src={logos.logoMono}
-            className="h-[38px] md:hidden"
-            alt="The Guild Monogram"
-          />
+          <GuildLogo className="md:w-7" />
+          <TheGuild className="hidden w-11 md:block" />
         </a>
 
-        <Navigation isModalOpen={mobileNavOpen} {...restProps.navigationProps}>
-          <Icon
-            iconType="close"
+        <nav
+          className={clsx(
+            `
+            fixed
+            inset-0
+            z-[300]
+            flex
+            flex-col
+            justify-center
+            bg-white
+            transition-all
+            duration-300
+            dark:bg-gray-900
+            md:static
+            md:flex-row
+            md:items-center
+            md:justify-end
+            md:transition-none
+          `,
+            !mobileNavOpen && '-top-full bottom-full'
+          )}
+          {...restProps.navigationProps}
+        >
+          <button
             onClick={() => handleNav(false)}
+            className="
+              absolute
+              top-6
+              right-6
+              rounded-lg
+              bg-gray-200
+              p-1.5
+              text-gray-500
+              outline-none
+              transition
+              hover:opacity-70
+              dark:bg-gray-700
+              dark:text-white
+              md:hidden
+            "
             {...restProps.navCloseButtonProps}
           >
-            <img
-              src={icons.close}
-              height="22"
-              width="22"
-              alt="Menu close icon"
-            />
-          </Icon>
+            <CloseIcon />
+          </button>
           {links.map((link) => (
-            <Link
+            <a
               key={link.label}
               title={link.title}
-              accentColor={accentColor}
-              isActiveLink={activeLink?.includes(link.href)}
+              className={clsx(
+                `mx-auto
+                 flex
+                 w-max
+                 items-center
+                 py-3
+                 text-center
+                 text-base
+                 font-medium
+                 no-underline
+                 transition
+                 hover:[color:var(--accentColor)]
+                 sm:py-5
+                 sm:text-lg
+                 md:mx-2.5
+                 md:py-0
+                 md:text-left
+                 md:text-xs`,
+                activeLink?.includes(link.href)
+                  ? `
+                  relative
+                  text-black
+                  after:absolute
+                  after:bottom-0
+                  after:h-0.5
+                  after:w-full
+                  after:rounded
+                  after:bg-black
+                  after:content-['']
+                  dark:text-gray-50
+                  after:dark:bg-white
+                  after:sm:bottom-2.5
+                  after:md:-bottom-2`
+                  : 'text-gray-500 dark:text-gray-400'
+              )}
+              style={{ '--accentColor': accentColor }}
               {...restProps.linkProps}
               {...renderLinkOptions(link.href, link.onClick || onLinkClick)}
             >
               {link.label}
-              {link.onClick && <img src={icons.caret} alt="Link icon" />}
-            </Link>
+              {link.onClick && <CaretIcon className="ml-1" />}
+            </a>
           ))}
-          <Controls>
-            <SearchBar
-              accentColor={accentColor}
-              title="Search docs"
-              placeholder="Search..."
-              {...restProps.searchBarProps}
-            />
-            {themeSwitch && setDarkTheme && (
-              <Icon
-                iconType="theme"
-                onClick={() => setDarkTheme((state: boolean) => !state)}
-                {...restProps.themeButtonProps}
-              >
-                <img
-                  src={icons.themeToggle}
-                  height={16}
-                  width={16}
-                  alt="Theme toggle icon"
-                />
-              </Icon>
-            )}
-          </Controls>
-        </Navigation>
-
-        <Side>
           <SearchBar
             accentColor={accentColor}
             title="Search docs"
             placeholder="Search..."
+            className="hidden md:flex"
             {...restProps.searchBarProps}
           />
-        </Side>
-      </Container>
+          {themeSwitch && setDarkTheme && (
+            <button
+              onClick={() => setDarkTheme((prev) => !prev)}
+              className="self-center md:ml-5"
+              {...restProps.themeButtonProps}
+            >
+              <MoonIcon className="fill-transparent stroke-gray-500 dark:fill-gray-100 dark:stroke-gray-100" />
+            </button>
+          )}
+        </nav>
+
+        <SearchBar
+          accentColor={accentColor}
+          title="Search docs"
+          placeholder="Search..."
+          className="md:hidden"
+          {...restProps.searchBarProps}
+        />
+      </div>
       <HeaderModal
         title="Products by The Guild"
         modalOpen={modalOpen}
-        onCancelModal={() => handleModal(false)}
+        onCancelModal={handleModal}
         {...restProps.headerModalProps}
       />
-    </Wrapper>
+    </header>
   );
 };

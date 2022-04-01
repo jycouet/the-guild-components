@@ -49,7 +49,7 @@ export const Modal: FC<IModalProps> = ({
     if (visible && escapePress) {
       onCancel();
     }
-  }, [visible, escapePress]);
+  }, [visible, escapePress, onCancel]);
 
   return (
     <Container isModalOpen={visible} {...restProps.containerProps}>

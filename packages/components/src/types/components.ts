@@ -132,6 +132,7 @@ export interface ISearchBarProps {
   placeholder: string;
   isFull?: boolean;
   onHandleModal?: (state: boolean) => void;
+  className?: string;
 }
 
 export interface IFeatureListProps {
