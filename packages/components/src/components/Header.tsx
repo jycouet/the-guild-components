@@ -45,7 +45,7 @@ export const Header: React.FC<IHeaderProps> = ({
   const { isDarkTheme, setDarkTheme } = useThemeContext();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const icons = headerThemedIcons(isDarkTheme || false);
+  const icons = headerThemedIcons(isDarkTheme);
   const logos = logoThemedIcons(isDarkTheme);
 
   const handleModal = (state: boolean) => {

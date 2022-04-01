@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { IFooterProps } from '../types/components';
 import { Footer } from './Footer';
@@ -23,6 +22,7 @@ export default {
 const Template: Story<IFooterProps> = (args) => <Footer {...args} />;
 
 export const Default = Template.bind({});
+
 Default.args = {
   sameSite: false,
 };

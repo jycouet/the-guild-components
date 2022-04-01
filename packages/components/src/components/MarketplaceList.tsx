@@ -99,7 +99,7 @@ export const MarketplaceList: FC<IMarketplaceListProps> = ({
   ...restProps
 }) => {
   const { isDarkTheme } = useThemeContext();
-  const marketplaceAssets = marketplaceThemedAssets(isDarkTheme || false);
+  const marketplaceAssets = marketplaceThemedAssets(isDarkTheme);
 
   const [currentPage, setCurrentPage] = useState(0);
 

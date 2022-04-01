@@ -62,7 +62,7 @@ export const SchemaPage: FC<ISchemaPageProps> = ({
   editorData,
 }) => {
   const { isDarkTheme } = useThemeContext();
-  const marketplaceAssets = marketplaceThemedAssets(isDarkTheme || false);
+  const marketplaceAssets = marketplaceThemedAssets(isDarkTheme);
   const [schemaObj, setSchemaObj] = useState(() =>
     buildSchema(editorData[0].schema!)
   );

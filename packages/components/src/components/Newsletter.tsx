@@ -10,9 +10,9 @@ export const Newsletter: React.FC<INewsletterProps> = ({
   onNewsletterSubmit,
 }) => {
   const { isDarkTheme } = useThemeContext();
-  const [inputValue, setInputValue] = useState<string>('');
-  const [inputError, setInputError] = useState<boolean>(false);
-  const icons = newsletterThemedIcons(isDarkTheme || false);
+  const [inputValue, setInputValue] = useState('');
+  const [inputError, setInputError] = useState(false);
+  const icons = newsletterThemedIcons(isDarkTheme);
 
   return (
     <Form

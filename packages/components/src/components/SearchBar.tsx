@@ -70,7 +70,7 @@ const searchClient: Pick<typeof algoliaClient, 'search'> = {
 
 function useIcons() {
   const { isDarkTheme } = useThemeContext();
-  return searchBarThemedIcons(isDarkTheme || false);
+  return searchBarThemedIcons(isDarkTheme);
 }
 
 function getPropertyByPath(obj: any, path: string) {

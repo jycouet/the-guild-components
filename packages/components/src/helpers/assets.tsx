@@ -30,7 +30,7 @@ const logoFullLight = `${CDN}guild-full-light.svg`;
 const logoMonoDark = `${CDN}guild-mono-dark.svg`;
 const logoMonoLight = `${CDN}guild-mono-light.svg`;
 
-export const headerThemedIcons = (isDark: boolean) => ({
+export const headerThemedIcons = (isDark = false) => ({
   themeToggle: isDark ? moonIconLight : moonIconDark,
   menu: isDark ? hamburgerIconLight : hamburgerIconDark,
   caret: isDark ? caretIconLight : caretIconDark,
@@ -169,7 +169,7 @@ export const logoThemedIcons = (isDark = false) => ({
   logoMono: isDark ? logoMonoLight : logoMonoDark,
 });
 
-export const searchBarThemedIcons = (isDark: boolean) => ({
+export const searchBarThemedIcons = (isDark = false) => ({
   search: isDark ? searchIconLight : searchIconDark,
   close: isDark ? closeIconLight : closeIconDark,
   page: isDark ? pageIconLight : pageIconDark,
@@ -177,19 +177,19 @@ export const searchBarThemedIcons = (isDark: boolean) => ({
   content: isDark ? hamburgerIconLight : hamburgerIconDark,
 });
 
-export const modalThemedIcons = (isDark: boolean) => ({
+export const modalThemedIcons = (isDark = false) => ({
   close: isDark ? closeIconLight : closeIconDark,
   externalLink: isDark ? externalLinkIconLight : externalLinkIconDark,
 });
 
-export const marketplaceThemedAssets = (isDark: boolean) => ({
+export const marketplaceThemedAssets = (isDark = false) => ({
   caret: isDark ? caretSlimIconLight : caretSlimIconDark,
   search: isDark ? searchIconLight : searchIconDark,
   share: shareDark,
   moreVertical: moreVerticalDark,
 });
 
-export const newsletterThemedIcons = (isDark: boolean) => ({
+export const newsletterThemedIcons = (isDark = false) => ({
   mail: isDark ? mailIconLight : mailIconDark,
   arrow: isDark ? arrowUpRightIconLight : arrowUpRightIconDark,
 });

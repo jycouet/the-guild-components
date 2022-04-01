@@ -26,7 +26,7 @@ export const Subheader: React.FC<ISubheaderProps> = ({
   const { isDarkTheme } = useThemeContext();
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-  const icons = headerThemedIcons(isDarkTheme || false);
+  const icons = headerThemedIcons(isDarkTheme);
 
   const handleNav = (state: boolean) => {
     toggleLockBodyScroll(state);

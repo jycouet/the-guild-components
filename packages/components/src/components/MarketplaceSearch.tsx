@@ -26,7 +26,7 @@ export const MarketplaceSearch: FC<IMarketplaceSearchProps> = ({
   ...restProps
 }) => {
   const { isDarkTheme } = useThemeContext();
-  const marketplaceAssets = marketplaceThemedAssets(isDarkTheme || false);
+  const marketplaceAssets = marketplaceThemedAssets(isDarkTheme);
   const [query, setQuery] = useState('');
 
   const handleChange = (e: FormEvent<HTMLInputElement>) => {

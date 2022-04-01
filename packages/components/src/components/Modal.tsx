@@ -27,7 +27,7 @@ export const Modal: FC<IModalProps> = ({
 }) => {
   const { isDarkTheme } = useThemeContext();
   const escapePress = useKeyPress('Escape');
-  const icons = modalThemedIcons(isDarkTheme || false);
+  const icons = modalThemedIcons(isDarkTheme);
 
   const renderDescription = () => {
     if (!description) {
