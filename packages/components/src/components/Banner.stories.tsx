@@ -1,7 +1,5 @@
-import React from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { IBannerProps } from '../types/components';
-
 import { Banner } from './Banner';
 
 export default {
@@ -28,6 +26,7 @@ export default {
 const Template: Story<IBannerProps> = (args) => <Banner {...args} />;
 
 export const Default = Template.bind({});
+
 Default.args = {
   children: (
     <>
