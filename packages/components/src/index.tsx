@@ -18,3 +18,9 @@ export { Banner } from './components/Banner';
 export { Instruction } from './components/Instruction';
 export { GlobalStyles } from './helpers/styles';
 export { ThemeContext, ThemeProvider, useThemeContext } from './helpers/theme';
+
+declare module 'react' {
+  interface CSSProperties {
+    [key: `--${string}`]: string | number | undefined;
+  }
+}

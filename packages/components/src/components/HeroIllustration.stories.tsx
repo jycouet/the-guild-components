@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { IHeroIllustrationProps } from '../types/components';
 import { dummyHeroIllustration } from '../helpers/dummy';
@@ -24,11 +23,6 @@ export default {
       name: 'Link',
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<IHeroIllustrationProps> = (args) => (
@@ -36,6 +30,7 @@ const Template: Story<IHeroIllustrationProps> = (args) => (
 );
 
 export const Default = Template.bind({});
+
 Default.args = {
   ...dummyHeroIllustration,
 };

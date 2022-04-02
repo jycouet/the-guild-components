@@ -8,12 +8,6 @@ interface IStyleProps {
   isFull?: boolean;
 }
 
-declare module 'react' {
-  interface CSSProperties {
-    [key: `--${string}`]: string | number | undefined;
-  }
-}
-
 export const SearchButton: FC<
   IStyleProps & ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ children, accentColor, isFull = false, className, ...props }) => {

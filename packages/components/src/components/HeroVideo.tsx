@@ -51,8 +51,7 @@ export const HeroVideo: FC<IHeroVideoProps> = ({
               text-sm
               text-cyan-400
               no-underline
-              transition-all
-              duration-300
+              transition
               hocus:text-cyan-300
             "
             {...link}

@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "start-storybook -p 6008",
-    "build": "tsc && rollup -c",
+    "build": "rm -rf dist && tsc && rollup -c",
     "storybook": "build-storybook -o dist-storybook",
     "next:dev": "concurrently -r \"tsc --watch\" \"rollup -c --watch\" \"yarn --cwd examples/nextjs dev\"",
     "next:build": "cd examples/nextjs && yarn build && yarn start",

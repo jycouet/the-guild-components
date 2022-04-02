@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactPlayerProps } from 'react-player';
+import type { ReactPlayerProps } from 'react-player';
 
 type IImage = React.ImgHTMLAttributes<unknown>;
 
