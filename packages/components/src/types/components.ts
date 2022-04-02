@@ -43,7 +43,6 @@ export interface IHeaderProps {
   searchBarProps?: React.ComponentProps<'button'>;
   themeButtonProps?: React.ComponentProps<'button'>;
   navOpenButtonProps?: React.ComponentProps<'button'>;
-  navCloseButtonProps?: React.ComponentProps<'button'>;
   headerModalProps?: IHeaderModalRestProps;
 }
 
@@ -65,7 +64,6 @@ export interface ISubheaderProps {
   linkProps?: React.ComponentProps<'a'>;
   ctaProps?: React.ComponentProps<'a'>;
   navOpenButtonProps?: React.ComponentProps<'button'>;
-  navCloseButtonProps?: React.ComponentProps<'button'>;
 }
 
 interface IHeaderModalRestProps {

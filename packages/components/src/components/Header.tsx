@@ -7,12 +7,12 @@ import { useThemeContext } from '../helpers/theme';
 import { toggleLockBodyScroll } from '../helpers/modals';
 import {
   CaretIcon,
-  CloseIcon,
   GuildLogo,
   HamburgerIcon,
   MoonIcon,
   TheGuild,
 } from './Icon';
+import { Nav } from './Nav';
 
 const renderLinkOptions = (
   href: string,
@@ -103,50 +103,11 @@ export const Header: React.FC<IHeaderProps> = ({
           <TheGuild className="hidden w-11 md:block" />
         </a>
 
-        <nav
-          className={clsx(
-            `
-            fixed
-            inset-0
-            z-[300]
-            flex
-            flex-col
-            justify-center
-            bg-white
-            transition-all
-            duration-300
-            dark:bg-gray-900
-            md:static
-            md:flex-row
-            md:items-center
-            md:justify-end
-            md:transition-none
-          `,
-            !mobileNavOpen && '-top-full bottom-full'
-          )}
+        <Nav
+          isOpen={mobileNavOpen}
+          setOpen={setMobileNavOpen}
           {...restProps.navigationProps}
         >
-          <button
-            onClick={() => handleNav(false)}
-            className="
-              absolute
-              top-6
-              right-6
-              rounded-lg
-              bg-gray-200
-              p-1.5
-              text-gray-500
-              outline-none
-              transition
-              hover:opacity-70
-              dark:bg-gray-700
-              dark:text-white
-              md:hidden
-            "
-            {...restProps.navCloseButtonProps}
-          >
-            <CloseIcon />
-          </button>
           {links.map((link) => (
             <a
               key={link.label}
@@ -210,7 +171,7 @@ export const Header: React.FC<IHeaderProps> = ({
               <MoonIcon className="fill-transparent stroke-gray-500 dark:fill-gray-100 dark:stroke-gray-100" />
             </button>
           )}
-        </nav>
+        </Nav>
 
         <SearchBar
           accentColor={accentColor}
