@@ -45,7 +45,8 @@ export const Subheader: FC<ISubheaderProps> = ({
               text-base
               font-medium
               no-underline
-              transition hover:text-black
+              transition
+              hover:text-black
               hover:dark:text-gray-100
               sm:py-5
               sm:text-lg
