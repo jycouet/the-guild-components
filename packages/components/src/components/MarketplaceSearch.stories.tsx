@@ -15,11 +15,6 @@ export default {
       name: 'Input Placeholder',
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<IMarketplaceSearchProps> = (args) => (

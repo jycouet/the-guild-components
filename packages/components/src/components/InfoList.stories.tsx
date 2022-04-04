@@ -15,11 +15,6 @@ export default {
       name: 'Items',
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<IInfoListProps> = (args) => <InfoList {...args} />;

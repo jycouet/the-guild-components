@@ -27,11 +27,6 @@ export default {
       name: 'Background Glow Colors',
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<IHeroGradientProps> = (args) => (

@@ -12,11 +12,6 @@ export default {
       name: 'Cards',
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<ICardsColorfulProps> = (args) => (

@@ -18,11 +18,6 @@ export default {
       name: 'Call to Action',
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<IHeroMarketplaceProps> = (args) => (

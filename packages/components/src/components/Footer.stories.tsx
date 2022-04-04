@@ -12,11 +12,6 @@ export default {
         'Use this to force links to open in the same tab, using the root domain.',
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<IFooterProps> = (args) => <Footer {...args} />;

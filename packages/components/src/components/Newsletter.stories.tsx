@@ -14,11 +14,6 @@ export default {
       control: false,
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<INewsletterProps> = (args) => <Newsletter {...args} />;

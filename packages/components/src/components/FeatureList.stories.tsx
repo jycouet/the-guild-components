@@ -15,22 +15,19 @@ export default {
       name: 'Features',
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<IFeatureListProps> = (args) => <FeatureList {...args} />;
 
 export const Default = Template.bind({});
+
 Default.args = {
   ...dummyFeatureList,
 };
 
-export const withTitleDescription = Template.bind({});
-withTitleDescription.args = {
+export const WithTitleDescription = Template.bind({});
+
+WithTitleDescription.args = {
   ...dummyFeatureList,
   titleDescription:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',

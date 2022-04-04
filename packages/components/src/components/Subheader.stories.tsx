@@ -25,11 +25,6 @@ export default {
       },
     },
   },
-  parameters: {
-    backgrounds: {
-      default: 'light',
-    },
-  },
 } as Meta;
 
 const Template: Story<ISubheaderProps> = (args) => <Subheader {...args} />;
