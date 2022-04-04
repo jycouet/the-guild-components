@@ -4,6 +4,7 @@ import type { ISubheaderProps } from '../types/components';
 import { toggleLockBodyScroll } from '../helpers/modals';
 import { CaretSlimIcon } from './Icon';
 import { Nav } from './Nav';
+import { Button } from './Button';
 
 export const Subheader: FC<ISubheaderProps> = ({
   product,
@@ -110,26 +111,8 @@ export const Subheader: FC<ISubheaderProps> = ({
         </a>
         {nav}
         {cta && (
-          <a
-            className="
-              mx-1
-              flex-none
-              rounded-md
-              bg-cyan-400
-              p-3
-              text-center
-              text-xs
-              font-medium
-              text-white
-              no-underline
-              transition
-              focus:bg-cyan-500
-              hocus:shadow-lg
-              hocus:shadow-cyan-400/40
-              md:mr-0
-              md:ml-3
-              md:px-5
-            "
+          <Button
+            className="mx-1 md:mr-0 md:ml-3"
             {...cta}
             {...restProps.ctaProps}
           />

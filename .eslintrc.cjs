@@ -30,6 +30,7 @@ module.exports = {
     'tailwindcss/enforces-shorthand': 'error',
     'tailwindcss/migration-from-tailwind-2': 'error',
     'no-unused-expressions': 'error',
+    'react/self-closing-comp': 'error',
   },
   settings: {
     tailwindcss: {
