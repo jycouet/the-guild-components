@@ -1,10 +1,8 @@
-import React from 'react';
-
+import { FC } from 'react';
 import { Container, Title, Item, Items, Wrapper } from './FeatureList.styles';
-
 import { IFeatureListProps } from '../types/components';
 
-export const FeatureList: React.FC<IFeatureListProps> = ({
+export const FeatureList: FC<IFeatureListProps> = ({
   title,
   titleDescription,
   items,

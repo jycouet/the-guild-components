@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { ISubheaderProps } from '../types/components';
 import { dummySubheader } from '../helpers/dummy';
@@ -30,6 +29,4 @@ export default {
 const Template: Story<ISubheaderProps> = (args) => <Subheader {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  ...dummySubheader,
-};
+Default.args = dummySubheader;

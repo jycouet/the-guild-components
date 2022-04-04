@@ -1,10 +1,8 @@
-import React from 'react';
-
+import { FC } from 'react';
 import { Container, Title, Item, Items, Wrapper } from './InfoList.styles';
-
 import { IInfoListProps } from '../types/components';
 
-export const InfoList: React.FC<IInfoListProps> = ({
+export const InfoList: FC<IInfoListProps> = ({
   title,
   items,
   ...restProps

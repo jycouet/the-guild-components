@@ -1,12 +1,10 @@
-import React from 'react';
-
+import { FC } from 'react';
 import IllustrationDesktop from '../static/illustrations/marketplace-desktop.png';
 import IllustrationMobile from '../static/illustrations/marketplace-mobile.png';
 import CubeTL from '../static/illustrations/marketplace-cube-tl.png';
 import CubeTR from '../static/illustrations/marketplace-cube-tr.png';
 import CubeBL from '../static/illustrations/marketplace-cube-bl.png';
 import CubeBR from '../static/illustrations/marketplace-cube-br.png';
-
 import {
   Container,
   Content,
@@ -17,10 +15,9 @@ import {
   Wrapper,
   Gradient,
 } from './HeroMarketplace.styles';
-
 import { IHeroMarketplaceProps } from '../types/components';
 
-export const HeroMarketplace: React.FC<IHeroMarketplaceProps> = ({
+export const HeroMarketplace: FC<IHeroMarketplaceProps> = ({
   title,
   description,
   link,

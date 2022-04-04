@@ -31,6 +31,4 @@ const Template: Story<IHeroIllustrationProps> = (args) => (
 
 export const Default = Template.bind({});
 
-Default.args = {
-  ...dummyHeroIllustration,
-};
+Default.args = dummyHeroIllustration;

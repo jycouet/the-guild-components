@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef } from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import { SchemaEditor, SchemaEditorProps } from './SchemaEditor';
 import { SchemaDiffEditor, SchemaDiffEditorProps } from './SchemaDiffEditor';
@@ -38,7 +38,7 @@ export default {
 } as Meta;
 
 const SchemaTemplate: Story<SchemaEditorProps> = (args) => {
-  const ref = React.useRef<SchemaEditorApi>(null);
+  const ref = useRef<SchemaEditorApi>(null);
 
   return (
     <div>

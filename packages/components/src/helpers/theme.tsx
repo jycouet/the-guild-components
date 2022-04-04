@@ -1,4 +1,13 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import {
+  FC,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 
 const getDarkTheme = () => {
   if (typeof window === 'undefined' || !window.localStorage) {
@@ -21,13 +30,13 @@ const getDarkTheme = () => {
 
 interface IContextProps {
   isDarkTheme: boolean;
-  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
+  setDarkTheme: Dispatch<SetStateAction<boolean>>;
 }
 
 interface IProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
   isDarkTheme?: boolean;
-  setDarkTheme?: React.Dispatch<React.SetStateAction<boolean>>;
+  setDarkTheme?: Dispatch<SetStateAction<boolean>>;
 }
 
 const ThemeContext = createContext<Partial<IContextProps>>({});
@@ -48,7 +57,7 @@ const setDOMTheme = (isDark: boolean, defaultThemeLogic?: boolean) => {
   }
 };
 
-const ThemeProvider: React.FC<IProviderProps> = ({
+const ThemeProvider: FC<IProviderProps> = ({
   children,
   isDarkTheme,
   setDarkTheme,

@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { IHeroMarketplaceProps } from '../types/components';
 import { HeroMarketplace } from './HeroMarketplace';
@@ -25,6 +24,4 @@ const Template: Story<IHeroMarketplaceProps> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
-  ...dummyHeroMarketplace,
-};
+Default.args = dummyHeroMarketplace;

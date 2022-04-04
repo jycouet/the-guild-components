@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { ISearchBarProps } from '../types/components';
 import { SearchBar } from './SearchBar';

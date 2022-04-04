@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import {
   Container,
   UpperLine,
@@ -7,17 +7,13 @@ import {
   Content,
 } from './Instruction.styles';
 
-type InstructionProps = {
-  children: React.ReactChild;
-};
-
-export const Instruction = (props: InstructionProps): React.ReactElement => {
+export const Instruction: FC = ({ children }) => {
   return (
     <Container>
       <UpperLine />
       <Inner>
         <SingleDot />
-        <Content>{props.children}</Content>
+        <Content>{children}</Content>
       </Inner>
     </Container>
   );

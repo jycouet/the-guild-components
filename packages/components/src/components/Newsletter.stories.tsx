@@ -1,4 +1,4 @@
-import React from 'react';
+import { FormEvent } from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { INewsletterProps } from '../types/components';
 import { Newsletter } from './Newsletter';
@@ -20,7 +20,7 @@ const Template: Story<INewsletterProps> = (args) => <Newsletter {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  onNewsletterSubmit: (e: React.FormEvent, value: string) => {
+  onNewsletterSubmit(e: FormEvent, value: string) {
     console.log(e, value);
   },
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { Global, css } from '@emotion/react';
 import { GlobalStyles as BaseStyles } from 'twin.macro';
 import { IGlobalStyle } from '../types/components';
@@ -149,7 +149,7 @@ const defaultFontFace = css`
   }
 `;
 
-export const GlobalStyles: React.FC<IGlobalStyle> = ({
+export const GlobalStyles: FC<IGlobalStyle> = ({
   includeFonts,
   includeBase,
 }) => (

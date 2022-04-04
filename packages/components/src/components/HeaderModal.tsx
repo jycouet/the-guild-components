@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 import { Modal } from './Modal';
 import {
   ProductCategory,
@@ -19,7 +19,7 @@ const productCategories = [
   { title: 'Open Source', items: products },
 ];
 
-export const HeaderModal: React.FC<IHeaderModalProps> = ({
+export const HeaderModal: FC<IHeaderModalProps> = ({
   title,
   modalOpen,
   onCancelModal,

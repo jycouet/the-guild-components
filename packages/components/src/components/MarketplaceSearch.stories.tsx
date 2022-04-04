@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { IMarketplaceSearchProps } from '../types/components';
 import { dummyMarketplaceSearch } from '../helpers/dummy';
@@ -22,6 +21,4 @@ const Template: Story<IMarketplaceSearchProps> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
-  ...dummyMarketplaceSearch,
-};
+Default.args = dummyMarketplaceSearch;

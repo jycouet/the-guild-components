@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { IFeatureListProps } from '../types/components';
 import { dummyFeatureList } from '../helpers/dummy';
@@ -21,9 +20,7 @@ const Template: Story<IFeatureListProps> = (args) => <FeatureList {...args} />;
 
 export const Default = Template.bind({});
 
-Default.args = {
-  ...dummyFeatureList,
-};
+Default.args = dummyFeatureList;
 
 export const WithTitleDescription = Template.bind({});
 

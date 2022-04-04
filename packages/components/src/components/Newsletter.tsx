@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
-
+import { FC, useState } from 'react';
 import { Form } from './Newsletter.styles';
 import { useThemeContext } from '../helpers/theme';
 import { newsletterThemedIcons } from '../helpers/assets';
 import { isEmail } from '../helpers/email';
 import { INewsletterProps } from '../types/components';
 
-export const Newsletter: React.FC<INewsletterProps> = ({
-  onNewsletterSubmit,
-}) => {
+export const Newsletter: FC<INewsletterProps> = ({ onNewsletterSubmit }) => {
   const { isDarkTheme } = useThemeContext();
   const [inputValue, setInputValue] = useState('');
   const [inputError, setInputError] = useState(false);

@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { IMarketplaceListProps } from '../types/components';
 import { dummyMarketplaceList } from '../helpers/dummy';
@@ -28,6 +27,4 @@ const Template: Story<IMarketplaceListProps> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
-  ...dummyMarketplaceList,
-};
+Default.args = dummyMarketplaceList;

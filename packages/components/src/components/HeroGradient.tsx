@@ -1,5 +1,4 @@
-import React, { isValidElement } from 'react';
-
+import { FC, isValidElement } from 'react';
 import {
   Container,
   Content,
@@ -9,10 +8,9 @@ import {
   Wrapper,
   Gradient,
 } from './HeroGradient.styles';
-
 import { IHeroGradientProps } from '../types/components';
 
-export const HeroGradient: React.FC<IHeroGradientProps> = ({
+export const HeroGradient: FC<IHeroGradientProps> = ({
   title,
   description,
   link,
@@ -50,7 +48,7 @@ export const HeroGradient: React.FC<IHeroGradientProps> = ({
           )}
         </CTA>
         {image &&
-          (React.isValidElement(image) ? (
+          (isValidElement(image) ? (
             image
           ) : (
             <Image src={image.src} alt={image.alt} {...restProps.imageProps} />

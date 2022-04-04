@@ -19,6 +19,4 @@ const Template: Story<ICardsColorfulProps> = (args) => (
 
 export const Default = Template.bind({});
 
-Default.args = {
-  ...dummyCardsColorful,
-};
+Default.args = dummyCardsColorful;
