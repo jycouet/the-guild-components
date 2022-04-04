@@ -28,6 +28,7 @@ module.exports = {
     // set more strict to highlight in editor
     'tailwindcss/no-custom-classname': 'error',
     'tailwindcss/enforces-shorthand': 'error',
+    'tailwindcss/migration-from-tailwind-2': 'error',
     'no-unused-expressions': 'error',
   },
   settings: {

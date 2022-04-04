@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Story, Meta } from '@storybook/react/types-6-0';
 import type { ICardsColorfulProps } from '../types/components';
 import { dummyCardsColorful } from '../helpers/dummy';
@@ -19,6 +18,7 @@ const Template: Story<ICardsColorfulProps> = (args) => (
 );
 
 export const Default = Template.bind({});
+
 Default.args = {
   ...dummyCardsColorful,
 };
