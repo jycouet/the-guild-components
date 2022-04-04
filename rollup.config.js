@@ -45,6 +45,8 @@ function bundle(packageDir) {
         babelHelpers: 'bundled',
         extensions: ['.tsx', '.ts'],
         configFile: join(__dirname, '.babelrc'),
+        // Fixes ReferenceError: React is not defined
+        presets: [['@babel/preset-react', { runtime: 'automatic' }]],
       }),
       image(),
       copy({

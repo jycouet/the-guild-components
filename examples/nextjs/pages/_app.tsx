@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import { FC } from 'react';
 import { AppProps } from 'next/app';
 import {
   Footer,
@@ -13,11 +13,7 @@ import {
 // 2. Remove `includeFonts` from `<GlobalStyles />`
 // import '../public/styles.css';
 
-export default function App({
-  router,
-  pageProps,
-  Component,
-}: AppProps): ReactElement {
+const App: FC<AppProps> = ({ router, pageProps, Component }) => {
   return (
     <>
       <GlobalStyles includeBase includeFonts />
@@ -60,4 +56,6 @@ export default function App({
       </ThemeProvider>
     </>
   );
-}
+};
+
+export default App;

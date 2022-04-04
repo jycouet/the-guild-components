@@ -346,11 +346,14 @@ export const SearchBar: FC<ISearchBarProps> = ({
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const handleModal = useCallback((state: boolean) => {
-    toggleLockBodyScroll(state);
-    setModalOpen(state);
-    onHandleModal?.(state);
-  }, [onHandleModal]);
+  const handleModal = useCallback(
+    (state: boolean) => {
+      toggleLockBodyScroll(state);
+      setModalOpen(state);
+      onHandleModal?.(state);
+    },
+    [onHandleModal]
+  );
 
   const CustomSearchBox = connectSearchBox(SearchBox);
   const CustomStateResults = connectStateResults(StateResults);
