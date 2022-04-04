@@ -24,7 +24,9 @@ export const Newsletter: React.FC<INewsletterProps> = ({
           return;
         }
 
-        inputError && setInputError(false);
+        if (inputError) {
+          setInputError(false);
+        }
         onNewsletterSubmit(e, inputValue);
       }}
       hasError={inputError}
@@ -38,7 +40,9 @@ export const Newsletter: React.FC<INewsletterProps> = ({
         placeholder="your@email.com"
         onChange={(e) => {
           setInputValue(e.target.value);
-          e.target.value === '' && setInputError(false);
+          if (e.target.value === '') {
+            setInputError(false);
+          }
         }}
       />
       <button type="submit">

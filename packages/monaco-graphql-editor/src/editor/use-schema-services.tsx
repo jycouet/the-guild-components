@@ -127,9 +127,9 @@ export const useSchemaServices = (options: SchemaServicesOptions = {}) => {
       );
 
       return () => {
-        hoverDisposable && hoverDisposable.dispose();
-        definitionProviderDisposable && definitionProviderDisposable.dispose();
-        onChangeDisposable && onChangeDisposable.dispose();
+        hoverDisposable?.dispose();
+        definitionProviderDisposable?.dispose();
+        onChangeDisposable?.dispose();
       };
     }
 
