@@ -31,6 +31,7 @@ module.exports = {
     'tailwindcss/migration-from-tailwind-2': 'error',
     'no-unused-expressions': 'error',
     'react/self-closing-comp': 'error',
+    'no-implicit-coercion': 'error',
   },
   settings: {
     tailwindcss: {

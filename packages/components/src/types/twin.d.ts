@@ -1,6 +1,5 @@
 import 'twin.macro';
-import styledImport from '@emotion/styled';
-import { CSSProp, css as cssImport } from '@emotion/core';
+import { CSSProp, css as cssImport, styled as styledImport } from '@emotion/core';
 
 declare module 'twin.macro' {
   // The styled and css imports

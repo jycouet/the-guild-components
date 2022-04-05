@@ -1,8 +1,8 @@
 import tw, { css, styled, theme } from 'twin.macro';
 import type { IBannerProps } from '../types/components';
 
-export const Wrapper = styled.div<IBannerProps>(
-  ({ color, bgColor, animation }) => [
+export const Wrapper = styled.div(
+  ({ color, bgColor, animation }: IBannerProps) => [
     tw`w-full sticky top-0 text-center py-4 px-6`,
     css`
       color: ${color || theme`colors.grayscale-line`};
