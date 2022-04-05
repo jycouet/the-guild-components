@@ -4,7 +4,8 @@
   "scripts": {
     "start": "start-storybook -p 6008",
     "build": "rm -rf dist && tsc && rollup -c",
-    "storybook": "build-storybook -o dist-storybook",
+    "build:css": "NODE_ENV=production tailwindcss --config tailwind.config.cjs --output tailwind.css",
+    "build:storybook": "build-storybook -o dist-storybook",
     "next:dev": "concurrently -r \"tsc --watch\" \"rollup -c --watch\" \"yarn --cwd examples/nextjs dev\"",
     "next:build": "cd examples/nextjs && yarn build && yarn start",
     "prettier": "prettier --ignore-path .gitignore --write --list-different .",
@@ -33,6 +34,7 @@
     "@storybook/addon-links": "6.4.20",
     "@storybook/addon-postcss": "2.0.0",
     "@storybook/react": "6.4.20",
+    "@tailwindcss/line-clamp": "0.3.1",
     "@types/react": "17.0.43",
     "@types/react-instantsearch-core": "6.10.7",
     "@types/react-instantsearch-dom": "6.12.2",

@@ -36,7 +36,7 @@ jobs:
         run: yarn lint-check
 
       - name: Build Storybook
-        run: yarn build-storybook
+        run: 'yarn build:storybook'
 
       - name: Build Next.js
         run: cd examples/nextjs && yarn build

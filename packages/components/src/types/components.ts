@@ -268,12 +268,11 @@ interface IMarketplaceItemRestProps {
   imageProps?: React.ComponentProps<'img'>;
   titleProps?: React.ComponentProps<'h3'>;
   descriptionProps?: React.ComponentProps<'p'>;
-  dateProps?: React.ComponentProps<'span'>;
+  dateProps?: React.ComponentProps<'td'>;
   linkProps?: React.ComponentProps<'a'>;
 }
 
 export interface IMarketplaceItemsProps extends IMarketplaceItemRestProps {
-  icon: string;
   items: IMarketplaceItemProps[];
 }
 
