@@ -30,7 +30,7 @@ export const Content = styled.div(
       height: calc(100% - 20px);
     }
 
-    > :first-child {
+    > :first-of-type {
       margin-top: 0;
     }
   `

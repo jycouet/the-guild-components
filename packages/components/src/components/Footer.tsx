@@ -65,7 +65,7 @@ export const Footer: FC<IFooterProps> = ({ sameSite, ...restProps }) => {
           Belong anywhere. © The Guild, Inc.
         </p>
         <a className="grow" {...logoOptions} {...restProps.logoProps}>
-          <GuildLogo className="mb-3 transition hover:text-gray-900 dark:hover:text-gray-100 md:mb-0 mx-auto" />
+          <GuildLogo className="mx-auto mb-3 transition hover:text-gray-900 dark:hover:text-gray-100 md:mb-0" />
         </a>
         <ul className="m-0 flex list-none flex-wrap p-0">
           {links.map((link) => (
@@ -73,8 +73,8 @@ export const Footer: FC<IFooterProps> = ({ sameSite, ...restProps }) => {
               key={link.href}
               className="
                 before:mx-2
-                md:before:content-['•']
                 before:first-of-type:hidden
+                md:before:content-['•']
               "
             >
               <a
