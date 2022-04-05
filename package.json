@@ -4,7 +4,7 @@
   "scripts": {
     "start": "start-storybook -p 6008",
     "build": "rm -rf dist && tsc && rollup -c",
-    "build:css": "NODE_ENV=production tailwindcss --config tailwind.config.cjs --output tailwind.css",
+    "build:css": "NODE_ENV=production tailwindcss --config tailwind.config.cjs --postcss --minify --output packages/components/dist/index.css",
     "build:storybook": "build-storybook -o dist-storybook",
     "next:dev": "concurrently -r \"tsc --watch\" \"rollup -c --watch\" \"yarn --cwd examples/nextjs dev\"",
     "next:build": "cd examples/nextjs && yarn build && yarn start",
@@ -77,7 +77,9 @@
       "config": "tailwind.config.cjs"
     }
   },
-  "browserslist": "> 0.25%, not dead",
+  "browserslist": [
+    "> 1%"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"

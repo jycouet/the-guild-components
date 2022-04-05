@@ -7,6 +7,7 @@ import {
   Subheader,
   ThemeProvider,
 } from '@theguild/components';
+import '@theguild/components/dist/index.css'
 
 // Overwrite font example:
 // 1. Import the font
