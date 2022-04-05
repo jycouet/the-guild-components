@@ -1,4 +1,6 @@
 // import type { StorybookConfig } from '@storybook/core-common';
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   stories: [
@@ -20,5 +22,14 @@ module.exports = {
   ],
   typescript: {
     reactDocgen: false,
+  },
+  async webpackFinal(config) {
+    config.resolve.plugins.push(
+      new TsconfigPathsPlugin({
+        configFile: path.join(process.cwd(), 'tsconfig.json'),
+      })
+    );
+
+    return config;
   },
 };

@@ -1,7 +1,5 @@
 import hamburgerIconDark from '../static/icons/hamburger-dark.svg';
 import hamburgerIconLight from '../static/icons/hamburger-light.svg';
-import caretSlimIconDark from '../static/icons/caret-down-slim-dark.svg';
-import caretSlimIconLight from '../static/icons/caret-down-slim-light.svg';
 import closeIconDark from '../static/icons/close-dark.svg';
 import closeIconLight from '../static/icons/close-light.svg';
 import externalLinkIconLight from '../static/icons/external-link-light.svg';
@@ -12,8 +10,6 @@ import pageIconDark from '../static/icons/page-dark.svg';
 import pageIconLight from '../static/icons/page-light.svg';
 import hashtagIconDark from '../static/icons/hashtag-dark.svg';
 import hashtagIconLight from '../static/icons/hashtag-light.svg';
-import shareDark from '../static/icons/share-dark.svg';
-import moreVerticalDark from '../static/icons/more-vertical-dark.svg';
 
 const CDN = 'https://the-guild.dev/static/shared-logos/products/';
 
@@ -154,11 +150,4 @@ export const searchBarThemedIcons = (isDark = false) => ({
 export const modalThemedIcons = (isDark = false) => ({
   close: isDark ? closeIconLight : closeIconDark,
   externalLink: isDark ? externalLinkIconLight : externalLinkIconDark,
-});
-
-export const marketplaceThemedAssets = (isDark = false) => ({
-  caret: isDark ? caretSlimIconLight : caretSlimIconDark,
-  search: isDark ? searchIconLight : searchIconDark,
-  share: shareDark,
-  moreVertical: moreVerticalDark,
 });

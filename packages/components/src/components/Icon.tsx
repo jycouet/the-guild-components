@@ -195,3 +195,71 @@ export const ArrowUpRightIcon: FC<{ className?: string }> = ({ className }) => {
     </svg>
   );
 };
+
+export const MoreIcon: FC<{ className?: string }> = ({ className }) => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      stroke="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9 9.75C9.41421 9.75 9.75 9.41421 9.75 9C9.75 8.58579 9.41421 8.25 9 8.25C8.58579 8.25 8.25 8.58579 8.25 9C8.25 9.41421 8.58579 9.75 9 9.75Z"
+        {...DEFAULT_PATH_PROPS}
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9 4.5C9.41421 4.5 9.75 4.16421 9.75 3.75C9.75 3.33579 9.41421 3 9 3C8.58579 3 8.25 3.33579 8.25 3.75C8.25 4.16421 8.58579 4.5 9 4.5Z"
+        {...DEFAULT_PATH_PROPS}
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M9 15C9.41421 15 9.75 14.6642 9.75 14.25C9.75 13.8358 9.41421 13.5 9 13.5C8.58579 13.5 8.25 13.8358 8.25 14.25C8.25 14.6642 8.58579 15 9 15Z"
+        {...DEFAULT_PATH_PROPS}
+      />
+    </svg>
+  );
+};
+
+export const ShareIcon: FC<{ className?: string }> = ({ className }) => {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+      stroke="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.5 6C14.7426 6 15.75 4.99264 15.75 3.75C15.75 2.50736 14.7426 1.5 13.5 1.5C12.2574 1.5 11.25 2.50736 11.25 3.75C11.25 4.99264 12.2574 6 13.5 6Z"
+        {...DEFAULT_PATH_PROPS}
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M4.5 11.25C5.74264 11.25 6.75 10.2426 6.75 9C6.75 7.75736 5.74264 6.75 4.5 6.75C3.25736 6.75 2.25 7.75736 2.25 9C2.25 10.2426 3.25736 11.25 4.5 11.25Z"
+        {...DEFAULT_PATH_PROPS}
+      />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M13.5 16.5C14.7426 16.5 15.75 15.4926 15.75 14.25C15.75 13.0074 14.7426 12 13.5 12C12.2574 12 11.25 13.0074 11.25 14.25C11.25 15.4926 12.2574 16.5 13.5 16.5Z"
+        {...DEFAULT_PATH_PROPS}
+      />
+      <path d="M6.44336 10.1325L11.5659 13.1175" {...DEFAULT_PATH_PROPS} />
+      <path d="M11.5584 4.88251L6.44336 7.86751" {...DEFAULT_PATH_PROPS} />
+    </svg>
+  );
+};

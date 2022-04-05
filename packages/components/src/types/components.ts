@@ -320,7 +320,6 @@ export interface IEditorProps {
   title?: string;
   frameworks?: string[];
   schema?: string;
-  icon: string;
   image?: string;
   operations?: string;
 }
