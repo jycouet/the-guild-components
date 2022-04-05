@@ -86,6 +86,7 @@ module.exports = {
         },
       });
       addVariant('hocus', ['&:hover', '&:focus']);
+      addVariant('not-hover', ['&:hover > :not(:hover)']);
     }),
   ],
 };
