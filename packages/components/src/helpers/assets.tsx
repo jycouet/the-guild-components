@@ -1,9 +1,5 @@
-import moonIconDark from '../static/icons/moon-dark.svg';
-import moonIconLight from '../static/icons/moon-light.svg';
 import hamburgerIconDark from '../static/icons/hamburger-dark.svg';
 import hamburgerIconLight from '../static/icons/hamburger-light.svg';
-import caretIconDark from '../static/icons/caret-down-dark.svg';
-import caretIconLight from '../static/icons/caret-down-light.svg';
 import caretSlimIconDark from '../static/icons/caret-down-slim-dark.svg';
 import caretSlimIconLight from '../static/icons/caret-down-slim-light.svg';
 import closeIconDark from '../static/icons/close-dark.svg';
@@ -16,22 +12,10 @@ import pageIconDark from '../static/icons/page-dark.svg';
 import pageIconLight from '../static/icons/page-light.svg';
 import hashtagIconDark from '../static/icons/hashtag-dark.svg';
 import hashtagIconLight from '../static/icons/hashtag-light.svg';
-import mailIconDark from '../static/icons/mail-dark.svg';
-import mailIconLight from '../static/icons/mail-light.svg';
-import arrowUpRightIconDark from '../static/icons/arrow-up-right-dark.svg';
-import arrowUpRightIconLight from '../static/icons/arrow-up-right-light.svg';
 import shareDark from '../static/icons/share-dark.svg';
 import moreVerticalDark from '../static/icons/more-vertical-dark.svg';
 
 const CDN = 'https://the-guild.dev/static/shared-logos/products/';
-
-export const headerThemedIcons = (isDark = false) => ({
-  themeToggle: isDark ? moonIconLight : moonIconDark,
-  menu: isDark ? hamburgerIconLight : hamburgerIconDark,
-  caret: isDark ? caretIconLight : caretIconDark,
-  caretSlim: isDark ? caretSlimIconLight : caretSlimIconDark,
-  close: isDark ? closeIconLight : closeIconDark,
-});
 
 export const PRODUCTS: {
   children: string;
@@ -177,9 +161,4 @@ export const marketplaceThemedAssets = (isDark = false) => ({
   search: isDark ? searchIconLight : searchIconDark,
   share: shareDark,
   moreVertical: moreVerticalDark,
-});
-
-export const newsletterThemedIcons = (isDark = false) => ({
-  mail: isDark ? mailIconLight : mailIconDark,
-  arrow: isDark ? arrowUpRightIconLight : arrowUpRightIconDark,
 });
