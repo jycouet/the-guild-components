@@ -3,7 +3,7 @@ import type { IBannerProps } from '../types/components';
 import { Banner } from './Banner';
 
 export default {
-  title: 'Components/Headers/Banner',
+  title: 'Components/Banner',
   component: Banner,
   argTypes: {
     bgColor: {

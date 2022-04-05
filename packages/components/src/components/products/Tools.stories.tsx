@@ -88,7 +88,7 @@ const heroGradientData = {
     href: '/docs',
   },
   version: 'v 7.0.5',
-  colors: ['#000246', '#184BE6'],
+  colors: ['#000246', '#184be6'],
 };
 
 const infoListData = {
@@ -118,7 +118,7 @@ const footerData = {
       children: 'Documentation',
       title: 'Read the Docs',
       href: '/docs',
-      onClick: (e) => {
+      onClick(e) {
         e.preventDefault();
         alert('Internal link handler');
       },
@@ -127,7 +127,7 @@ const footerData = {
       children: 'Generate Schemas',
       title: 'Learn about generating schemas',
       href: '/docs/generate-schema',
-      onClick: (e) => {
+      onClick(e) {
         e.preventDefault();
         alert('Internal link handler');
       },
@@ -136,7 +136,7 @@ const footerData = {
       children: 'Mock APIs',
       title: 'Learn about mocking APIs',
       href: '/docs/mocking',
-      onClick: (e) => {
+      onClick(e) {
         e.preventDefault();
         alert('Internal link handler');
       },
@@ -145,7 +145,7 @@ const footerData = {
       children: 'Stitch Schemas',
       title: 'Learn about stitching schemas',
       href: '/docs/stitch-combining-schemas',
-      onClick: (e) => {
+      onClick(e) {
         e.preventDefault();
         alert('Internal link handler');
       },
