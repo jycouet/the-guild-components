@@ -19,9 +19,9 @@ import type {
   SearchBoxProvided,
   StateResultsProvided,
 } from 'react-instantsearch-core';
+import clsx from 'clsx';
 import { useDebouncedCallback } from 'use-debounce';
 import { Modal } from './Modal';
-import { SearchButton, SearchHit } from './SearchBar.styles';
 import type { ISearchBarProps } from '../types/components';
 import { searchBarThemedIcons } from '../helpers/assets';
 import { toggleLockBodyScroll } from '../helpers/modals';
@@ -84,12 +84,20 @@ const Snippet: FC<{
   attribute: string;
   tagName?: string;
 }> = ({ hit, attribute, tagName = 'span' }) => {
+  let html =
+    getPropertyByPath(hit, `_snippetResult.${attribute}.value`) ||
+    getPropertyByPath(hit, attribute);
+  if (html) {
+    // some query results contains `.css-` selectors, so we strips them out
+    html = html.replace(/\s+\.css-.*/, '');
+  }
+
   return createElement(tagName, {
-    dangerouslySetInnerHTML: {
-      __html:
-        getPropertyByPath(hit, `_snippetResult.${attribute}.value`) ||
-        getPropertyByPath(hit, attribute),
-    },
+    dangerouslySetInnerHTML: { __html: html },
+    className:
+      tagName === 'span'
+        ? 'dark:text-gray-300 text-gray-700'
+        : 'text-xs text-gray-400',
   });
 };
 
@@ -259,9 +267,12 @@ const Hits: FC<{ hits: Hit<any>[]; accentColor: string }> = ({
   return (
     <>
       {groupedHits.map((hit) => (
-        <SearchHit key={hit.level} accentColor={accentColor}>
-          <h2>{hit.level}</h2>
+        <article key={hit.level} style={{ '--color': accentColor }}>
+          <h2 className="text-base font-semibold [color:var(--color)]">
+            {hit.level}
+          </h2>
           {hit.items.map((subHit: Hit<ResultDoc>) => {
+            const isSameWebsite = subHit.url.startsWith(window.location.origin);
             let content;
 
             if (subHit.hierarchy[subHit.type] && subHit.type === 'lvl1') {
@@ -309,28 +320,39 @@ const Hits: FC<{ hits: Hit<any>[]; accentColor: string }> = ({
               );
             }
 
-            const isSameWebsite =
-              typeof window === 'object' &&
-              subHit.url.startsWith(window.location.origin);
 
             return (
               <a
                 key={subHit.url}
                 href={subHit.url}
                 target={isSameWebsite ? '_self' : '_blank'}
+                className="
+                  mb-2
+                  flex
+                  items-center
+                  break-all
+                  rounded-md
+                  bg-gray-100
+                  px-5
+                  py-3
+                  no-underline
+                  hover:![background:var(--color)]
+                  dark:bg-gray-800
+                "
                 rel="noreferrer"
               >
                 <img
                   src={transformIcon(subHit)}
-                  height="26"
-                  width="26"
+                  className="mr-4 h-6 w-6"
                   alt="Result icon"
                 />
-                <div className="ais-content">{content}</div>
+                <div>
+                  {content}
+                </div>
               </a>
             );
           })}
-        </SearchHit>
+        </article>
       ))}
     </>
   );
@@ -361,14 +383,40 @@ export const SearchBar: FC<ISearchBarProps> = ({
 
   return (
     <>
-      <SearchButton
-        className={className}
-        accentColor={accentColor}
-        isFull={isFull}
+      <button
+        className={clsx(
+          `
+        flex
+        cursor-pointer
+        items-center
+        border-transparent
+        bg-transparent
+        p-0
+        text-xs
+        font-medium
+        text-gray-500
+        font-default
+        hocus:transition
+        md:ml-3
+        md:rounded-md
+        md:border-2
+        md:bg-gray-100
+        md:py-1
+        md:pl-1
+        md:pr-8
+        md:hocus:[border-color:var(--accentColor)]
+        md:dark:bg-gray-800
+        md:dark:text-gray-300
+        `,
+          isFull && '!md:p-2 !m-0 w-full',
+          className
+        )}
+        style={{ '--accentColor': accentColor }}
         onClick={() => handleModal(true)}
       >
-        {placeholder}
-      </SearchButton>
+        <SearchIcon className="h-6 w-6 md:mr-1 md:h-4.5 md:w-4.5" />
+        <span className="hidden md:block">{placeholder}</span>
+      </button>
       <Modal
         title={title}
         visible={modalOpen}

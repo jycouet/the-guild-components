@@ -76,6 +76,7 @@ export const Modal: FC<IModalProps> = ({
             flex-col
             bg-white
             dark:bg-gray-900
+            md:max-h-[80%]
             md:-translate-x-1/2
             md:rounded-md
           `,
