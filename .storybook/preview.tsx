@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { themes } from '@storybook/theming';
-import { ThemeProvider } from '../packages/components/src/helpers/theme';
+import { ThemeProvider } from '../packages/components/src';
 import '../packages/components/src/static/styles.css';
 import '../packages/components/src/static/fonts.css';
 
@@ -21,21 +20,10 @@ export const parameters = {
   },
 };
 
-const ThemeWrapper: FC = ({ children }) => {
-  return (
-    <ThemeProvider
-      // TODO: make work toggle in header
-      isDarkTheme={useDarkMode()}
-    >
-      {children}
-    </ThemeProvider>
-  );
-};
-
 export const decorators = [
   (Story) => (
-    <ThemeWrapper>
+    <ThemeProvider isDarkTheme={useDarkMode()}>
       <Story />
-    </ThemeWrapper>
+    </ThemeProvider>
   ),
 ];
