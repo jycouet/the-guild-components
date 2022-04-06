@@ -8,11 +8,6 @@ interface IVideo {
   placeholder: string;
 }
 
-export interface IGlobalStyle {
-  includeFonts?: boolean;
-  includeBase?: boolean;
-}
-
 export interface ILink {
   title: string;
   href: string;

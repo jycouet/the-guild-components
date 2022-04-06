@@ -1,13 +1,4 @@
-import {
-  FC,
-  Dispatch,
-  ReactNode,
-  SetStateAction,
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const getDarkTheme = () => {
   if (typeof window === 'undefined' || !window.localStorage) {
@@ -30,13 +21,13 @@ const getDarkTheme = () => {
 
 interface IContextProps {
   isDarkTheme: boolean;
-  setDarkTheme: Dispatch<SetStateAction<boolean>>;
+  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 interface IProviderProps {
-  children: ReactNode;
+  children: React.ReactNode;
   isDarkTheme?: boolean;
-  setDarkTheme?: Dispatch<SetStateAction<boolean>>;
+  setDarkTheme?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ThemeContext = createContext<Partial<IContextProps>>({});
@@ -57,7 +48,7 @@ const setDOMTheme = (isDark: boolean, defaultThemeLogic?: boolean) => {
   }
 };
 
-const ThemeProvider: FC<IProviderProps> = ({
+export const ThemeProvider: React.FC<IProviderProps> = ({
   children,
   isDarkTheme,
   setDarkTheme,
@@ -86,14 +77,4 @@ const ThemeProvider: FC<IProviderProps> = ({
   );
 };
 
-const useThemeContext = (): Partial<IContextProps> => {
-  const context = useContext(ThemeContext);
-
-  if (context == null) {
-    throw new Error('"useThemeContext" could not be used.');
-  }
-
-  return context;
-};
-
-export { ThemeContext, ThemeProvider, useThemeContext };
+export const useThemeContext = () => useContext(ThemeContext);

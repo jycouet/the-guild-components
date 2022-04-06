@@ -16,8 +16,7 @@ export { SearchBar } from './components/SearchBar';
 export { Subheader } from './components/Subheader';
 export { Banner } from './components/Banner';
 export { Instruction } from './components/Instruction';
-export { GlobalStyles } from './helpers/styles';
-export { ThemeContext, ThemeProvider, useThemeContext } from './helpers/theme';
+export { ThemeProvider, useThemeContext } from './helpers/theme';
 
 declare module 'react' {
   interface CSSProperties {
@@ -32,4 +31,4 @@ try {
   } else {
     document.documentElement.classList.remove('dark')
   }
-} catch (_) {}`
+} catch (_) {}`;
