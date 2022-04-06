@@ -2,8 +2,6 @@ import hamburgerIconDark from '../static/icons/hamburger-dark.svg';
 import hamburgerIconLight from '../static/icons/hamburger-light.svg';
 import closeIconDark from '../static/icons/close-dark.svg';
 import closeIconLight from '../static/icons/close-light.svg';
-import externalLinkIconLight from '../static/icons/external-link-light.svg';
-import externalLinkIconDark from '../static/icons/external-link-dark.svg';
 import searchIconDark from '../static/icons/search-dark.svg';
 import searchIconLight from '../static/icons/search-light.svg';
 import pageIconDark from '../static/icons/page-dark.svg';
@@ -145,9 +143,4 @@ export const searchBarThemedIcons = (isDark = false) => ({
   page: isDark ? pageIconLight : pageIconDark,
   hashtag: isDark ? hashtagIconLight : hashtagIconDark,
   content: isDark ? hamburgerIconLight : hamburgerIconDark,
-});
-
-export const modalThemedIcons = (isDark = false) => ({
-  close: isDark ? closeIconLight : closeIconDark,
-  externalLink: isDark ? externalLinkIconLight : externalLinkIconDark,
 });

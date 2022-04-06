@@ -631,7 +631,7 @@ const dummyOperations = dedent(/* GraphQL */ `
 
 export const dummySchemaPage = {
   schemaName: 'Schema Type 1',
-  tags: ['typeScript', 'frontend', 'backend'],
+  tags: ['TypeScript', 'Frontend', 'Backend'],
   editorData: [
     {
       title: 'schema.graphql',

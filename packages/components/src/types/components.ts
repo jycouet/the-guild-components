@@ -120,7 +120,7 @@ export interface IModalProps extends IModalRestProps {
   description?: string | ILink;
   image?: IImage;
   visible: boolean;
-  placement: 'top' | 'center' | 'bottom' | 'bottom-wide';
+  placement: 'top' | 'center' | 'bottom';
   onCancel: (state?: boolean) => void;
 }
 
