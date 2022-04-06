@@ -81,7 +81,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,mjs,cjs,ts,tsx}": [
+    "*.{js,mjs,cjs,ts,tsx,md,mdx,json,yml,yaml}": [
       "pretty-quick --staged",
       "eslint"
     ],
@@ -91,11 +91,5 @@
   },
   "engines": {
     "node": ">=14"
-  },
-  "resolutions": {
-    "stylis": "4.0.13"
-  },
-  "dependencies": {
-    "clsx": "1.1.1"
   }
 }

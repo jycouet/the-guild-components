@@ -29,14 +29,11 @@ const ThemeContext = createContext<IContextProps>({
   setDarkTheme: () => undefined,
 });
 
-const setDOMTheme = (isDark: boolean, defaultThemeLogic?: boolean) => {
+const setDOMTheme = (isDark: boolean) => {
   if (typeof window !== 'undefined' && window.localStorage) {
     const html = window.document.documentElement;
     html.classList.toggle('dark', isDark);
-
-    if (defaultThemeLogic) {
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    }
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   }
 };
 
