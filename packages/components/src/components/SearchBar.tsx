@@ -23,11 +23,15 @@ import clsx from 'clsx';
 import { useDebouncedCallback } from 'use-debounce';
 import { Modal } from './Modal';
 import type { ISearchBarProps } from '../types/components';
-import { searchBarThemedIcons } from '../helpers/assets';
 import { toggleLockBodyScroll } from '../helpers/modals';
-import { useThemeContext } from '../helpers/theme';
 import { algoliaConfig } from '../configs';
-import { CloseIcon, SearchIcon } from './Icon';
+import {
+  CloseIcon,
+  HamburgerIcon,
+  HashTagIcon,
+  PageIcon,
+  SearchIcon,
+} from './Icon';
 
 const algoliaClient = algoliaSearch(algoliaConfig.appID, algoliaConfig.apiKey, {
   hosts: algoliaConfig.hosts,
@@ -67,11 +71,6 @@ const searchClient: Pick<typeof algoliaClient, 'search'> = {
     return algoliaClient.search(requests);
   },
 };
-
-function useIcons() {
-  const { isDarkTheme } = useThemeContext();
-  return searchBarThemedIcons(isDarkTheme);
-}
 
 function getPropertyByPath(obj: any, path: string) {
   const parts = path.split('.');
@@ -234,8 +233,6 @@ const Hits: FC<{ hits: Hit<any>[]; accentColor: string }> = ({
   hits,
   accentColor,
 }) => {
-  const icons = useIcons();
-
   const transformItems = (items: Hit<any>[]) => {
     const groupBy = items.reduce((acc, item) => {
       const list = acc[item.hierarchy.lvl0] || [];
@@ -254,12 +251,12 @@ const Hits: FC<{ hits: Hit<any>[]; accentColor: string }> = ({
 
   const transformIcon = (item: Hit<ResultDoc>) => {
     if (item.anchor) {
-      return icons.hashtag;
+      return <HashTagIcon />;
     }
     if (item.content) {
-      return icons.content;
+      return <HamburgerIcon />;
     }
-    return icons.page;
+    return <PageIcon />;
   };
 
   const groupedHits = transformItems(hits);
@@ -268,7 +265,7 @@ const Hits: FC<{ hits: Hit<any>[]; accentColor: string }> = ({
     <>
       {groupedHits.map((hit) => (
         <article key={hit.level} style={{ '--color': accentColor }}>
-          <h2 className="text-base font-semibold [color:var(--color)]">
+          <h2 className="mb-4 mt-8 text-base font-semibold [color:var(--color)]">
             {hit.level}
           </h2>
           {hit.items.map((subHit: Hit<ResultDoc>) => {
@@ -320,7 +317,6 @@ const Hits: FC<{ hits: Hit<any>[]; accentColor: string }> = ({
               );
             }
 
-
             return (
               <a
                 key={subHit.url}
@@ -330,25 +326,21 @@ const Hits: FC<{ hits: Hit<any>[]; accentColor: string }> = ({
                   mb-2
                   flex
                   items-center
+                  gap-x-2.5
                   break-all
                   rounded-md
                   bg-gray-100
                   px-5
                   py-3
                   no-underline
+                  last:mb-0
                   hover:![background:var(--color)]
                   dark:bg-gray-800
                 "
                 rel="noreferrer"
               >
-                <img
-                  src={transformIcon(subHit)}
-                  className="mr-4 h-6 w-6"
-                  alt="Result icon"
-                />
-                <div>
-                  {content}
-                </div>
+                {transformIcon(subHit)}
+                <div>{content}</div>
               </a>
             );
           })}

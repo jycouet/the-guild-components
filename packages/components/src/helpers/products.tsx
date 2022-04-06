@@ -1,14 +1,3 @@
-import hamburgerIconDark from '../static/icons/hamburger-dark.svg';
-import hamburgerIconLight from '../static/icons/hamburger-light.svg';
-import closeIconDark from '../static/icons/close-dark.svg';
-import closeIconLight from '../static/icons/close-light.svg';
-import searchIconDark from '../static/icons/search-dark.svg';
-import searchIconLight from '../static/icons/search-light.svg';
-import pageIconDark from '../static/icons/page-dark.svg';
-import pageIconLight from '../static/icons/page-light.svg';
-import hashtagIconDark from '../static/icons/hashtag-dark.svg';
-import hashtagIconLight from '../static/icons/hashtag-light.svg';
-
 const CDN = 'https://the-guild.dev/static/shared-logos/products/';
 
 export const PRODUCTS: {
@@ -136,11 +125,3 @@ export const PRODUCTS: {
     logo: `${CDN}whatsapp.svg`,
   },
 ];
-
-export const searchBarThemedIcons = (isDark = false) => ({
-  search: isDark ? searchIconLight : searchIconDark,
-  close: isDark ? closeIconLight : closeIconDark,
-  page: isDark ? pageIconLight : pageIconDark,
-  hashtag: isDark ? hashtagIconLight : hashtagIconDark,
-  content: isDark ? hamburgerIconLight : hamburgerIconDark,
-});

@@ -1,7 +1,7 @@
 import { FC, Fragment } from 'react';
 import { Modal } from './Modal';
 import type { IHeaderModalProps } from '../types/components';
-import { PRODUCTS } from '../helpers/assets';
+import { PRODUCTS } from '../helpers/products';
 
 // Copy array because splice mutate original array
 const products = [...PRODUCTS];
