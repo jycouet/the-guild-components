@@ -86,7 +86,7 @@ export const Header: React.FC<IHeaderProps> = ({
         {...restProps.containerProps}
       >
         <button
-          className="text-gray-500 transition hover:text-gray-400 dark:text-gray-200 dark:hover:text-gray-400 md:hidden"
+          className="text-gray-500 transition hover:text-gray-400 dark:text-gray-200 dark:hover:text-gray-400 md:hidden outline-none focus:ring rounded-sm"
           onClick={() => handleNav(true)}
           {...restProps.navOpenButtonProps}
         >
@@ -95,7 +95,7 @@ export const Header: React.FC<IHeaderProps> = ({
 
         <a
           title="View our website"
-          className="flex items-center gap-x-1.5 dark:text-gray-100"
+          className="flex items-center gap-x-1.5 dark:text-gray-100 outline-none focus:ring rounded-sm"
           {...renderLinkOptions('/', onLinkClick)}
           {...restProps.logoProps}
         >
@@ -124,6 +124,9 @@ export const Header: React.FC<IHeaderProps> = ({
                  no-underline
                  transition
                  hover:[color:var(--accentColor)]
+                 outline-none
+                 focus:ring
+                 rounded-sm
                  sm:py-5
                  sm:text-lg
                  md:mx-2.5
@@ -165,7 +168,7 @@ export const Header: React.FC<IHeaderProps> = ({
           {themeSwitch && setDarkTheme && (
             <button
               onClick={() => setDarkTheme((prev) => !prev)}
-              className="self-center md:ml-5"
+              className="self-center md:ml-5 outline-none focus:ring rounded-sm"
               {...restProps.themeButtonProps}
             >
               <MoonIcon className="fill-transparent stroke-gray-500 dark:fill-gray-100 dark:stroke-gray-100" />

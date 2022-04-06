@@ -23,6 +23,7 @@ export const Instruction: FC = ({ children }) => {
             relative
             h-2.5
             w-2.5
+            shrink-0
             before:absolute
             before:top-0
             before:left-0

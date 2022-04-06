@@ -194,14 +194,14 @@ const SearchBox: FC<
             type="button"
             onClick={() => refine('')}
             className="
-              cursor-pointer
               border-0
               bg-transparent
               p-0
+              outline-none
               transition
-              duration-200
-              ease-in-out
               hover:opacity-70
+              focus:ring
+              rounded-sm
             "
           >
             <CloseIcon />
@@ -251,12 +251,18 @@ const Hits: FC<{ hits: Hit<any>[]; accentColor: string }> = ({
 
   const transformIcon = (item: Hit<ResultDoc>) => {
     if (item.anchor) {
-      return <HashTagIcon />;
+      return (
+        <HashTagIcon className="text-gray-500 hocus:text-white dark:text-white" />
+      );
     }
     if (item.content) {
-      return <HamburgerIcon />;
+      return (
+        <HamburgerIcon className="text-gray-500 hocus:text-white dark:text-white" />
+      );
     }
-    return <PageIcon />;
+    return (
+      <PageIcon className="text-gray-500 hocus:text-white dark:text-white" />
+    );
   };
 
   const groupedHits = transformItems(hits);
@@ -326,15 +332,17 @@ const Hits: FC<{ hits: Hit<any>[]; accentColor: string }> = ({
                   mb-2
                   flex
                   items-center
-                  gap-x-2.5
+                  gap-x-3
                   break-all
                   rounded-md
                   bg-gray-100
                   px-5
                   py-3
                   no-underline
+                  outline-none
                   last:mb-0
-                  hover:![background:var(--color)]
+                  focus:ring
+                  hocus:![background:var(--color)]
                   dark:bg-gray-800
                 "
                 rel="noreferrer"
@@ -379,7 +387,6 @@ export const SearchBar: FC<ISearchBarProps> = ({
         className={clsx(
           `
         flex
-        cursor-pointer
         items-center
         border-transparent
         bg-transparent
@@ -388,7 +395,9 @@ export const SearchBar: FC<ISearchBarProps> = ({
         font-medium
         text-gray-500
         font-default
-        hocus:transition
+        outline-none
+        focus:ring
+        transition
         md:ml-3
         md:rounded-md
         md:border-2
@@ -409,6 +418,7 @@ export const SearchBar: FC<ISearchBarProps> = ({
         <SearchIcon className="h-6 w-6 md:mr-1 md:h-4.5 md:w-4.5" />
         <span className="hidden md:block">{placeholder}</span>
       </button>
+
       <Modal
         title={title}
         visible={modalOpen}

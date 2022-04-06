@@ -16,7 +16,7 @@ export const Nav: FC<{
         ` 
         fixed
         inset-0
-        z-[49px]
+        z-[49]
         flex
         flex-col
         justify-center

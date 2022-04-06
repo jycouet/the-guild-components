@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
 import { themes } from '@storybook/theming';
 import { ThemeProvider } from '../packages/components/src/helpers/theme';
-import { GlobalStyles } from '../packages/components/src/helpers/styles';
 import '../packages/components/src/static/styles.css';
+import '../packages/components/src/static/fonts.css';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -27,7 +27,6 @@ const ThemeWrapper: FC = ({ children }) => {
       // TODO: make work toggle in header
       isDarkTheme={useDarkMode()}
     >
-      <GlobalStyles includeFonts includeBase />
       {children}
     </ThemeProvider>
   );

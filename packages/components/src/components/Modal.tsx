@@ -47,7 +47,7 @@ export const Modal: FC<IModalProps> = ({
   return (
     <div
       className={clsx(
-        'fixed inset-0 z-[50px] backdrop-blur-sm font-default',
+        'fixed inset-0 z-[50] backdrop-blur-sm font-default',
         !visible && 'hidden'
       )}
       {...restProps.containerProps}
@@ -132,6 +132,7 @@ export const Modal: FC<IModalProps> = ({
                 p-1.5
                 text-gray-500
                 outline-none
+                focus:ring
                 transition
                 hocus:border-gray-500
                 dark:bg-gray-700
