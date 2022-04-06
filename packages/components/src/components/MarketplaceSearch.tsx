@@ -77,7 +77,7 @@ export const MarketplaceSearch: React.FC<IMarketplaceSearchProps> = ({
         {tagsFilter && (
           <TagsContainer>
             {tagsFilter.map((tagName) => (
-              <Tag onClick={() => setQuery(`#${tagName}`)} key={tagName}>
+              <Tag key={tagName} onClick={() => setQuery(`#${tagName}`)}>
                 {tagName}
               </Tag>
             ))}
