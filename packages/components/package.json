@@ -20,7 +20,7 @@
     "algoliasearch": "^4.13.0",
     "focus-trap-react": "^8.9.2",
     "polished": "^4.1.4",
-    "react-instantsearch-dom": "6.17.0",
+    "react-instantsearch-dom": "6.24.3",
     "@algolia/autocomplete-js": "^1.6.2",
     "@algolia/autocomplete-theme-classic": "^1.6.2",
     "@algolia/autocomplete-plugin-algolia-insights": "^1.6.2",
@@ -36,7 +36,7 @@
     "access": "public"
   },
   "devDependencies": {
-    "@guild-docs/algolia": "0.0.2-alpha-b736bdc.0",
+    "@guild-docs/algolia": "0.0.4",
     "@types/dedent": "0.7.0",
     "dedent": "0.7.0"
   }
